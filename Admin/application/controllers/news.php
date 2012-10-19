@@ -202,7 +202,7 @@ class news extends CI_Controller
 	 	  		{
 	 	  			$this->news_model->create();
 	 	  			$newly_one = $this->news_model->get_newly_one();
-	 	  			print_r($newly_one);
+	 	  			//print_r($newly_one);
 	 	  			if($re_edit)
 	 	 			{	 	 				
 	 	 				show_message2('"新闻(ID:'.$newly_one['0']['id'].')" 已保存!', 'news/edit/id/'.$newly_one['0']['id']);

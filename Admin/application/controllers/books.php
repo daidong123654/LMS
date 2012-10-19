@@ -410,10 +410,16 @@
 		}
 
 		$params = $this->uri->uri_to_assoc();
-        if (isset($params['id']) && ($id = $params['id']) > 0){		
+        if (isset($params['bookID']) && ($id = $params['bookID']) > 0){		
 
+			//检查图书有没有外借
+			$this->load->model('borrow_model');
+			if($this->borrow_model->is_borrowed_out($params['bookID']))
+			{
+				return show_message2('"图书(ID:'.$id.')" 已外借，不能删除!', 'books');
+			}
 			// 删除图书
-            $this->load->model('books_model');
+            $this->load->model('books_model');            
             if ($this->books_model->delete($id)){
                 //echo $id;
 				show_message2('"图书(ID:'.$id.')" 已被永久删除!', 'books/recycle');
@@ -437,9 +443,17 @@
 		if (!admin_priv('books_del')){
 			return show_message2('你没有此项操作的权限!', 'books');
 		}
-
+		
         $segments = $this->uri->uri_to_assoc(); 
 		$books_id = (int)$segments['id'];
+		
+		//检查图书有没有外借
+		$this->load->model('borrow_model');
+		if($this->borrow_model->is_borrowed_out($books_id))
+		{
+			return show_message2('"图书(ID:'.$books_id.')" 已外借，不能放入回收站!', 'books');
+		}
+		
 		$this->load->model('books_model');
         $this->books_model->in_recycle($books_id);
 
@@ -662,8 +676,6 @@
       	$data['result'] = $this->books_model->load($id);
       	$this->load->view('books/view',$data);
       }
-	 
-	
  } 
  
 ?>

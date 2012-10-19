@@ -210,6 +210,18 @@
  	   		$query = $this->db->get();
  	   		return $query->row_array();
  	   }
+ 	   
+ 	   //--------------------------
+ 	   /**
+ 	    * IS BORROWED OUT?
+ 	    */
+ 	    function is_borrowed_out($bookID)
+ 	    {
+ 	    	$query = $this->db->where('isreturn','0');
+ 	    	$query = $this->db->get_where('lib_borrow',array('bookID'=>$bookID));
+ 	    	$flag = ($query->num_rows() > 0) ? 1 :0;
+ 	    	return $flag; 	    	
+ 	    }
  	
  }
 ?>

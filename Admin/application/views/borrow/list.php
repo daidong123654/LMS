@@ -217,7 +217,7 @@ function listEdit(obj, field, id)
 		  <!--<td><div class="x-grid3-cell-inner "><?php //echo $num ?></div></td>-->
 			<td><div class="x-grid3-cell-inner "><?php echo $value['id'] ?></div></td>
 			
-			<td ><div class="x-grid3-cell-inner " ><?php echo $value['bookname']; ?></span></div></td>	
+			<td ><div class="x-grid3-cell-inner " ><?php echo $value['bookname'].'/'.$value['bookID']; ?></span></div></td>	
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['booktypename'].'/'.$value['bookID'] ?></div></td>		
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['price'] ?></div></td>
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['readername'].'/'.$value['reader'] ?></div></td>

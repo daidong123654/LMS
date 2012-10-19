@@ -5,6 +5,7 @@
  * To change the template for this generated file go to
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
+  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  class Role extends CI_Controller
  {
  	/**
@@ -273,15 +274,6 @@
     				echo $content;
     			return null;
 			}
-    
-    
-    
-    
-    
-    
-    
-    
- 	   
  }
 ?>
 

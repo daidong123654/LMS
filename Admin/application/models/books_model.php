@@ -77,9 +77,9 @@
  				$row['type'] = array();
  			}
  			
- 			//内容
- 			$query2 = $this->db->get_where('lib_book_content',array('id'=>$row['barcode']));
- 			$row2 = $query2->result_array(); 
+ 			//内容(这里的barcode就对应的是书本信息表里面的bookID,因为借书是想用barcode来实现的，现在用bookID代替)
+ 			$query2 = $this->db->get_where('lib_book_content',array('barcode'=>$row['bookID']));
+ 			$row2 = $query2->row_array(); 
  			if(!empty($row2))
  			{
  				$row['content'] = $row2['content'];
@@ -88,6 +88,18 @@
  			{
  				$row['content'] = '';
  			}
+ 			//查找图书出版社
+	        $query3 = $this->db->get_where('lib_publishing',array('ISBN'=>$row['ISBN']));
+	        $row3 = $query3->row_array();
+	        if(!empty($row3))
+	        {
+	        	$row['publisher'] = $row3['ISBNname'];
+	        }
+	        else
+	        {
+	        	$row['publisher'] = '';
+	        }
+ 			
  			return $row;		
  		} 		
  		return array();
