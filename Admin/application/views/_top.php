@@ -67,7 +67,7 @@ $(document).ready(function() {
 	
 	<li><a href="<?php echo site_url('admin_user')?>" target="main-frame" onclick="changeMenu('<?php echo site_url('frameset/menu/admin');?>')">管理员</a></li>
 	
-	<li><a href="<?php echo site_url('system')?>" target="main-frame" onclick="changeMenu('<?php echo site_url('frameset/menu/system');?>')">系统管理</a></li>
+	<li><a href="<?php echo site_url('systems')?>" target="main-frame" onclick="changeMenu('<?php echo site_url('frameset/menu/systems');?>')">系统管理</a></li>
 		
 	<li><a href="<?php echo site_url('news')?>" target="main-frame" onclick="changeMenu('<?php echo site_url('frameset/menu/news');?>')">新闻管理</a></li>
 	

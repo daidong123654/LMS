@@ -110,9 +110,9 @@ $(document).ready(function() {
 
 </head>
 
-<h2 style="text-align:center">HIT-LIBM Admin_login</h2>
+<h2 style="text-align:center;font-family:隶书">同一个世界，同一片和谐。</h2>
 <div style="width:40%;margin-left:30%">
-	<marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" ><h3 style="text-align:center;font-family:隶书">哈尔滨工业大学图书馆管理员登陆</h3></marquee>
+	<marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" ><h3 style="text-align:center;font-family:隶书">和谐社区图书馆管理员登陆</h3></marquee>
 </div>
 <body  class=" x-border-layout-ct" style="position: relative;" >
 <div id="login">

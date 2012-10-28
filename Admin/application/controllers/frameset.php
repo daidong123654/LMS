@@ -75,7 +75,7 @@ if ( ! defined('BASEPATH'))
  	    		case 'message' : $this->load->view('message/menu'); break;   //4留言
  	    		case 'borrow'  : $this->load->view('borrow/menu');  break;   //5借阅
  	    		case 'admin'   : $this->load->view('admin/menu');   break;   //6管理员
- 	    		case 'system'  : $this->load->view('system/menu');	break;   //7 系统设置 
+ 	    		case 'systems'  : $this->load->view('system/menu');	break;   //7 系统设置 
  	    	}
  	    }
  }
