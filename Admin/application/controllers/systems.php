@@ -42,7 +42,7 @@
  	 	//检出权限
 	 	if(!admin_priv('lib_info_edit'))
 	 	{
-	 	   return show_message2('你没有编辑新闻的权限！','news');
+	 	   return show_message2('你没有编辑信息的权限！','news');
 	 	}
 	 	$params = $this->uri->uri_to_assoc();
 	 	if(!empty($params['id']) && $params['id'] > 0)
@@ -133,7 +133,7 @@
  	
  	//--------------------------------------------
  	  /**
- 	   * 表单验证规则
+ 	   * 表单验证规则  no tips
  	   * 
  	   */
  	   function set_save_form_rules()
@@ -155,8 +155,95 @@
  	 */
  	 function work()
  	 {
- 	 	echo "a";
+ 	 	 $this->load->model('systems_model');
+ 	 	 $data['editing'] = $this->systems_model->load_tips(); 	 	 
+ 	 	 $this->load->view('system/setting_list',$data); 	
  	 }
+ 	 
+ 	 //-------------------------------------
+ 	/**
+ 	 * editing
+ 	 */
+ 	 function edit_tips()
+ 	 {
+ 	 	//检出权限
+	 	if(!admin_priv('lib_info_edit'))
+	 	{
+	 	   return show_message2('你没有编辑设置信息的权限！','news');
+	 	}
+	 	$params = $this->uri->uri_to_assoc();
+	 	if(!empty($params['id']) && $params['id'] > 0)
+	 	{
+	 		$id = $params['id'];
+	 		$this->load->model('systems_model');
+	 		$data['editing'] = $this->systems_model->load_tips();
+	 		if(!$data['editing'])
+	 		{
+	 			return show_message2('无效ID','systems');
+	 		}
+	 		$data['header_text'] = "编辑图书馆设置信息";	 		 
+	 	}
+	 	else
+	 	{
+	 		return show_message2('无效ID','systems');
+	 	}
+	 	 	
+	 	$this->load->view('system/edit_tips',$data);
+ 	 }
+ 	 
+ 	 //-----------------------
+ 	 /**
+ 	  * save
+ 	  */
+ 	  function save_tips()
+ 	  {
+ 	  		//图书馆信息
+ 			 $TipsMoney = $this->input->post('TipsMoney');
+ 			 $validity = $this->input->post('validity');
+ 			 $penaltyMoney = $this->input->post('penaltyMoney');
+ 			
+ 			 
+ 			 //表单验证
+ 	  		$this->load->library('form_validation'); 	  		
+ 	  		//set ryles
+ 	  		$this->set_save_form_rules_tips();
+ 			if($this->form_validation->run() == TRUE)
+ 	  		{
+ 	  			$id = $this->input->post('id');
+ 	  			//提交数据到模型
+ 	  			$this->load->model('systems_model');
+ 	  			$this->systems_model->TipsMoney = $TipsMoney;
+ 	  			$this->systems_model->validity = $validity;
+ 	  			$this->systems_model->penaltyMoney = $penaltyMoney;
+ 	  			
+ 	  			$this->systems_model->update_tips($id);
+ 	  			return show_message2('设置信息已更新！','systems/work'); 	 		
+	 	  		
+ 	  		}
+ 	  		//验证失败
+ 	  		else
+ 	  		{
+ 	  			$this->load->model('systems_model');
+ 	 	 		$data['editing'] = $this->systems_model->load();
+ 	 	 		$data['header_text'] = "编辑图书馆信息";	
+ 	 	 		
+ 	  			$this->load->view('systems/edit_tips',$data);
+ 	  		} 
+ 	  }
+ 	  
+ 	  //--------------------------------------------
+ 	  /**
+ 	   * 表单验证规则 tips
+ 	   * 
+ 	   */
+ 	   function set_save_form_rules_tips()
+ 	   { 	   
+ 	   		$rules['TipsMoney'] = 'required';
+ 	   		$rules['validity'] = 'required';
+ 	   		$rules['penaltyMoney'] = 'required'; 	   		  		
+ 	   		 	   		
+ 	   		$this->form_validation->set_rules($rules);		
+ 	   } 	 
  	
  }
 ?>

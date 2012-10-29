@@ -30,23 +30,7 @@
 
   <div  class="x-panel-bwrap ">
 	<!--TOOL-->
-	<div id="cmm-func" class="x-panel-tbar">
-	<div  class="x-toolbar">
-	  <table cellspacing="0">
-	  <tr>
-	      <td class="x-btn x-btn-text-icon">
-			<table  cellspacing="0" cellpadding="0" border="0" style="width: auto;"><tbody><tr>
-			<td class="x-btn-left"></td>
-			<td class="x-btn-center">
-			<em ><a  href="<?php echo site_url('message/add')?>" target="main-frame" ><button  class="x-btn-text add-feed" type="button" onclick="parent.document.getElementById('main-frame').src='<?php echo site_url('message/add');?>'">添加留言</button></a></em>
-			</td>
-			<td class="x-btn-right"><i> </i></td>
-			</tr></tbody></table>
-		  </td>
-	  </tr>
-	  </table>
-	</div>
-	</div>
+	
 
 	<div id="menu-body" class="x-panel-body" style="overflow: auto; width: 223px; height:600px">
     <ul  class="x-tree-root-ct x-tree-no-lines">
@@ -62,8 +46,10 @@
      
 	  <ul  style="" class="x-tree-node-ct">
 	  <li class="x-tree-node"><div  class="x-tree-node-el x-tree-node-leaf feed x-tree-selected " ><span class="x-tree-node-indent"><img class="x-tree-icon" src="<?php echo base_url()?>images/s.gif"/></span><img  class="x-tree-node-icon feed-icon" src="<?php echo base_url()?>images/s.gif"/><a href="<?php echo site_url('message')?>" target="main-frame"><span >留言列表</span></a></div></li>
+	  
+	  <li class="x-tree-node"><div  class="x-tree-node-el x-tree-node-leaf feed x-tree-selected " ><span class="x-tree-node-indent"><img class="x-tree-icon" src="<?php echo base_url()?>images/s.gif"/></span><img  class="x-tree-node-icon feed-icon" src="<?php echo base_url()?>images/s.gif"/><a href="<?php echo site_url('message/recycle')?>" target="main-frame"><span >回收站</span></a></div></li>
 
-	  <li class="x-tree-node"><div  class="x-tree-node-el x-tree-node-leaf feed" ><span class="x-tree-node-indent"><img class="x-tree-icon" src="<?php echo base_url()?>images/s.gif"/></span><img  class="x-tree-node-icon add-feed" src="<?php echo base_url()?>images/s.gif"/><a  href="<?php echo site_url('message/add')?>" target="main-frame" ><span >添加留言</span></a></div></li>  
+	 
 	       
 	  </ul>	  
     </li>

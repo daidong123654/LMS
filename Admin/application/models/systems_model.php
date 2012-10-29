@@ -106,6 +106,7 @@
  	 {
  	 	$this->db->set('TipsMoney',$this->TipsMoney);
  	 	$this->db->set('validity',$this->validity); 	
+ 	 	$this->db->set('penaltyMoney',$this->penaltyMoney); 
  	 	
  	 	$this->db->insert('lib_setting'); 	 	
  	 }
@@ -119,8 +120,9 @@
  	 {
  	 	$this->db->set('TipsMoney',$this->TipsMoney);
  	 	$this->db->set('validity',$this->validity); 
+ 	 	$this->db->set('penaltyMoney',$this->penaltyMoney); 
  	 		
- 	 	$this->db->where('sID',$id);
+ 	 	$this->db->where('id',$id);
  	 	$this->db->update('lib_setting'); 	
  	 }
  	

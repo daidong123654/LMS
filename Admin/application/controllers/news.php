@@ -50,7 +50,7 @@ class news extends CI_Controller
  		$base_url = site_url('news/index/page').'/';
  		
  		//每页显示数据条数
- 		$per_page = 5;
+ 		$per_page = 3;
  		
  		//数据总数
  		$this->load->model('news_model');
