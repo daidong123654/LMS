@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/Library/Reader/';
+$config['base_url']	= 'http://192.168.17.90/Library/';
 
 /*
 |--------------------------------------------------------------------------
