@@ -72,7 +72,7 @@
  	   		//用户名和密码不匹配
  	   		else
  	   		{
- 	   			echo 2;
+ 	   			//echo 2;
  	   			//show_message2('用户名或者密码错误！','login'); 	   			
  	   			//redirect('login');
  	   			echo "用户名或者密码错误！";
@@ -83,7 +83,7 @@
  	   	else
  	   	{
  	   		redirect('login');
- 	   		echo "78";
+ 	   		echo "86";
  	   	}	   	
  	   	
  	   }

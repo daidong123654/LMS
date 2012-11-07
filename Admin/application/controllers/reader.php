@@ -11,7 +11,13 @@
  	function __construct()
  	{
  		parent::__construct();
+ 		if(!$this->session->userdata('logged_in'))
+	 	{
+	 		redirect('login');
+	 		exit();
+	 	}
  	}
+	
  	
  	function index()
  	{		

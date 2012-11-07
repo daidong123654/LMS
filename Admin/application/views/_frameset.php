@@ -42,7 +42,7 @@ if (window.top != window)
 </div>
 
 <div id="admin">
- <a href="http://localhost/Library/Reader/">前台&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+ <a target="_blank" href="<?php echo front_url();?>">前台&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
  <?php echo $this->session->userdata('name');?>
  &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo site_url('login/logout')?>">退出</a>
 </div>

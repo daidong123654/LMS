@@ -78,8 +78,15 @@
  	  	$this->db->set('password',md5($this->password));
  	  	$this->db->set('typeid',$this->typeid);
  	  	$this->db->set('papertype',$this->papertype);
- 	  	$this->db->set('papercode',$this->papercode); 	  	
+ 	  	$this->db->set('papercode',$this->papercode); 	  		  	
  	  	$this->db->set('CreateDate',$datetime);
+ 	  	
+ 	  	$date = date('Ymd');
+ 	  	$temp = $this->get_newly_one();
+ 	  	//print_r($temp);
+ 	  	$ids = $temp['0']['id']+1;
+ 	  	$barcode = $date.$ids;
+ 	    $this->db->set('barcode',$barcode);
  	  	
  	  	$this->db->insert('lib_reader'); 	  	
  	  }

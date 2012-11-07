@@ -24,6 +24,7 @@
  	 		redirect('login');//登陆界面的地址（相对）
  	 		exit();
  	 	}
+ 	 	//$this->enable_profiler(TRUE);
  	 }
  	 
  	 //--------------------------------------------------------------------------------------------------------
@@ -279,6 +280,7 @@
  	     	$rules['password'] = 'less_than[6]|required';
  	     	$this->form_validation->set_rules($rules);
  	     }
+ 	     
  	     
  }
 ?>
