@@ -56,16 +56,7 @@ $(document).ready(function() {
 
 function in_recycle(id,obj)
 {
-	if (confirm('确定把该书籍放入回收站吗？')){
-    /*$.ajax({
-	  url: '<?php echo site_url('books/in_recycle/id')?>'+'/'+id,
-	  type: 'GET',
-	  dataType: 'html',
-	  success: function(data){
-	    $(obj).parents('tr:first').remove();
-		_reset_page();
-      }
-	});*/
+	if (confirm('确定把该书籍放入回收站吗？')){   
 	window.location.href= '<?php echo site_url('books/in_recycle/id')?>'+'/'+id;
     }
 }

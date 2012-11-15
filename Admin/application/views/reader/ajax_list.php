@@ -11,16 +11,44 @@
 
 	  <div class="list-div " id="listDiv" style="margin-bottom:20px;">
 		<table cellpadding="3" cellspacing="0" id="listTable" >
-		  <tbody>        
-		 <?php  foreach ($readers as $value){ ?>
+		  <thead>
+		  <tr class="x-grid3-header">
+			
+			<th class="" >
+			<div class="x-grid3-hd-inner">ID<img class="x-grid3-sort-icon" src="<?php echo base_url()?>images/s.gif"></div></th>
+
+			<th class="" >
+			<div class="x-grid3-hd-inner">用户名<img class="x-grid3-sort-icon" src="<?php echo base_url()?>images/s.gif"></div></th>
+		
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">邮箱</div></th>
+
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">在借图书</div></th>			
+
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">注册证件类型</div></th>
+
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">注册证件号码</div></th>
+			
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">注册时间</div></th>
+
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">操作</div></th>
+		  </tr>
+		  </thead>
+          
+		  <?php  foreach ($readers as $value){ ?>
 		  <tr class="x-grid3-row "  >
 			<td><div class="x-grid3-cell-inner "><?php echo $value['id'] ?></div></td>
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['name'] ?></div></td>
 			<td><div class="x-grid3-cell-inner "><?php echo $value['Email'] ?></div></td>
-			<td><div class="x-grid3-cell-inner "><?php echo $value['BooksInBorrow'] ?></div></td>
+			<td><div class="x-grid3-cell-inner "><?php echo $value['BooksInBorrow'] ?></div></td>			
+			<td ><div class="x-grid3-cell-inner "><?php echo $value['papertype'] ?>	</div></td>
+			<td ><div class="x-grid3-cell-inner "><?php echo $value['papercode'] ?> </div></td>
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['CreateDate'] ?></div></td>
-			<td ><div class="x-grid3-cell-inner ">暂无	</div></td>
-			<td ><div class="x-grid3-cell-inner ">暂无  </div></td>
 			<td ><div class="x-grid3-cell-inner ">			 
 			 <a href='<?php echo site_url('reader/edit/id/'.$value['id'])?>' style="text-decoration:none" alt='编辑' title='编辑'>
 			 <img src="<?php echo base_url()?>images/icon_edit.gif" border="0" width="16" height="16">

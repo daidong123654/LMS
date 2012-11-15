@@ -71,6 +71,24 @@
 						);	
 		return $date;		
  	 }
+ 	 
+ 	  //------------------------------------------------------------------------------------------------------------------------------------------
+	    /**
+	     * 查找图书
+	     */
+	     function find_book()
+	     {
+	     	$keyword = $this->input->post('keyword');
+	     	//echo $keyword;
+	     	$this->load->model('reader_model');
+	     	$books = $this->reader_model->find_book($keyword);
+	     	//print_r($books);
+	     	$data['keyword'] = $keyword;
+	     	$data['books'] = $books;
+	     	$this->load->view("reader/home_header");
+		 	$this->load->view("book_list",$data);
+		 	$this->load->view("reader/home_footer");
+	     }
  
  }
 ?>

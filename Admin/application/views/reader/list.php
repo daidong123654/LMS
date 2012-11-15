@@ -97,16 +97,16 @@ function delete_c(id)
 			<div class="x-grid3-hd-inner">邮箱</div></th>
 
 			<th class="" style="border-right:0 solid #99bbe8;">
-			<div class="x-grid3-hd-inner">在借图书</div></th>
+			<div class="x-grid3-hd-inner">在借图书</div></th>			
 
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">注册证件类型</div></th>
+
+			<th class="" style="border-right:0 solid #99bbe8;">
+			<div class="x-grid3-hd-inner">注册证件号码</div></th>
+			
 			<th class="" style="border-right:0 solid #99bbe8;">
 			<div class="x-grid3-hd-inner">注册时间</div></th>
-
-			<th class="" style="border-right:0 solid #99bbe8;">
-			<div class="x-grid3-hd-inner">激活</div></th>
-
-			<th class="" style="border-right:0 solid #99bbe8;">
-			<div class="x-grid3-hd-inner">锁定</div></th>
 
 			<th class="" style="border-right:0 solid #99bbe8;">
 			<div class="x-grid3-hd-inner">操作</div></th>
@@ -118,10 +118,10 @@ function delete_c(id)
 			<td><div class="x-grid3-cell-inner "><?php echo $value['id'] ?></div></td>
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['name'] ?></div></td>
 			<td><div class="x-grid3-cell-inner "><?php echo $value['Email'] ?></div></td>
-			<td><div class="x-grid3-cell-inner "><?php echo $value['BooksInBorrow'] ?></div></td>
+			<td><div class="x-grid3-cell-inner "><?php echo $value['BooksInBorrow'] ?></div></td>			
+			<td ><div class="x-grid3-cell-inner "><?php echo $value['papertype'] ?>	</div></td>
+			<td ><div class="x-grid3-cell-inner "><?php echo $value['papercode'] ?> </div></td>
 			<td ><div class="x-grid3-cell-inner "><?php echo $value['CreateDate'] ?></div></td>
-			<td ><div class="x-grid3-cell-inner ">暂无	</div></td>
-			<td ><div class="x-grid3-cell-inner ">暂无  </div></td>
 			<td ><div class="x-grid3-cell-inner ">			 
 			 <a href='<?php echo site_url('reader/edit/id/'.$value['id'])?>' style="text-decoration:none" alt='编辑' title='编辑'>
 			 <img src="<?php echo base_url()?>images/icon_edit.gif" border="0" width="16" height="16">

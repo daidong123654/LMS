@@ -53,14 +53,15 @@
 				{
 				?>
                   <li><a href="<?echo site_url('reader')?>">个人主页</a></li>
-                  <li><a href="<?echo site_url('reader')?>">设置</a></li>
-                  <li><a href="<?echo site_url('reader')?>">借阅历史</a></li>
+                  <li><a href="<?echo site_url('reader/setting')?>">更新信息</a></li>
+                  <li><a href="<?echo site_url('reader/inborrow')?>">在借图书</a></li>
+                  <li><a href="<?echo site_url('reader/list_order')?>">预借信息</a></li>
+                  <li><a href="<?echo site_url('reader/history')?>">借阅历史</a></li>
 				<?
 				}
 				?>
               <li><a href="#contact">新闻</a></li>              
-              <li><a href="#contact">留言</a></li>              
-              <li><a href="#contact">在线阅读</a></li>              
+              <li><a href="#contact">留言</a></li>             
             </ul>
 		
 			<?if($this->session->userdata('logged')=='0')//$logged_in =='0')	
@@ -85,7 +86,7 @@
                   <li><a href="#">个人主页</a></li>
                   <li><a href="#">设置</a></li>
                   <li class="divider"></li>
-				  <li><a href="#">客服</a></li>
+				  <li><a href="<?php echo site_url('reader/changepass')?>">修改密码</a></li>
                   <li class="divider"></li>
                   <!--<li class="nav-header">账户</li>-->
                   <li><!--<a href="<?echo site_url('login/logout')?>">退出</a>-->
@@ -109,13 +110,13 @@
 		<!--<img src="<?php echo base_url()?>/images/title.jpg">-->
 		<!--<h2 style="margin-top:10px;"><?php echo $lib_info['LibraryName']?></h2>-->
 		
-		<form class="form-search" action="#" method="post" >
+		<form class="form-search" action="<?php echo site_url('reader/find_book')?>" method="post" >
 		  <label>搜 索 图 书: </label>
-		  <input type="text" class="input-medium search-query span3" placeholder="请输入图书信息...">
+		  <input type="text" class="input-medium search-query span3" placeholder="请输入图书信息..." name="keyword">
 		  </label><button type="submit" class="btn">和谐一下</button>
 		</form>		
 		<hr/>
-     <?print_r($this->session->userdata);?>
+     <?//print_r($this->session->userdata);?>
 		
 		<!--工作信息-->
 		<div class="span3" >
@@ -135,8 +136,5 @@
 			<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
 			<a href="<?echo site_url('login/logout')?>"><button class="btn btn-primary">确定</button></a>
 		  </div>
-		</div>	
-      </div>	  
-	 </div>
-<?php //print_r($news_five)//echo $news_five[]?>
-      
+		</div>
+     

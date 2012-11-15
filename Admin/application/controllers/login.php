@@ -27,6 +27,7 @@
  	  function index()
  	  {
  	  	$data = array();
+ 	  //	$this->load->view('Copy/js');
  	  	$this->load->view('admin/admin_login',$data);
  	  }
  	  

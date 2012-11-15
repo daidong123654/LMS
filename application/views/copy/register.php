@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>和谐图书馆注册页面</title>
+    <title>和谐图书馆主页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,17 +24,64 @@
 <script type="text/javascript">
 $(
 	function()
-	{			
+	{	
+		$.formValidator.initConfig(
+			{
+				autotip: true,
+				validatorgroup: "1"
+			});
+		$("#tbxLoginNickname")
+			.formValidator(
+				{
+					validatorgroup: "1",
+					tipid: "loginNickname",
+					onshow: "",
+					onfocus: "",
+					oncorrect: ""
+				})
+			.inputValidator(
+				{
+					min: 1,
+					onerror: "请填写用户名"
+				});
+		$("#tbxLoginPassword")
+			.formValidator(
+				{
+					validatorgroup: "1",
+					tipid: "loginPassword",
+					onshow: "",
+					onfocus: "",
+					oncorrect: ""
+				})
+			.inputValidator(
+				{
+					min: 1,
+					onerror: "请填写密码"
+				});
+		$("#tbxLoginVerifier")
+			.formValidator(
+				{
+					validatorgroup: "1",
+					tipid: "loginVerifier",
+					onshow: "",
+					onfocus: "",
+					oncorrect: ""
+				})
+			.inputValidator(
+				{
+					min: 1,
+					onerror: "请填写验证码"
+				});
 		$.formValidator.initConfig(
 			{
 				autotip: true,
 				validatorgroup: "2"
 			});
-		$("#inputUsername")
+		$("#tbxRegisterNickname")
 			.formValidator(
 				{
 					validatorgroup: "2",
-					tipid: "inputUsername",
+					tipid: "registerNickname",
 					onshow: "4-20位字符，可由中英文、数字及“_”、“-”组成",
 					onfocus: "",
 					oncorrect: ""
@@ -371,73 +418,47 @@ function change_action(group)
 		 <div class="row-fluid">
 		  <div class="span12">	
 			 
-			  <div class="lo_corner_c">
-	  <h2 class="login">
-	    <div class="lo_h2_left"></div>
-		<div class="lo_h2_right"></div>
-		<span class="float_Right"></span><em>注册新用户,请您填写信息:</em>
-	  </h2>
-	  <div class="onError"><span id="cvlRegister" style="color: Red; display: none;">注册信息错误</span></div>
-<!--注册-->
+			  <!--注册-->
 			  <div class="span8" >
-				<span class="float_Right"></span><em>注册新用户,请您填写信息:</em>
-				 <div class="onError"><span id="cvlRegister" style="color: Red; display: none;">注册信息错误</span></div>
-				<form class="form-horizontal" action="<?php echo base_url()?>index.php/reader_user/register" method="post" name="readerregisterform">
-				  <div class="control-group lo_child">    
-					<label class="control-label" for="inputEmail">用户名</label>
-					<div class="controls">
-					  <input type="text" id="inputUsername" placeholder="用户名" name="name" onblur='checkname()'/>
-					  <br/>(4-20位字符，可由中英文、数字及“_”、“-”组成)
+				
+				<div class="lo_corner_t">
+					  <div class="lo_corner_tl"></div>
+					  <div class="lo_corner_tr"></div>
 					</div>
-				  </div>
-				  
-				  <div class="control-group">
-					<label class="control-label" for="inputPassword">密码</label>
-					<div class="controls">
-					  <input type="password" id="inputPassword" placeholder="密码" name="password" />
-					  <br/>6-16位字符，可由英文、数字及“_”、“-”组成
-					</div>
-				  </div>
-				  
-				  <div class="control-group">
-					<label class="control-label" for="inputPassword">再次输入密码</label>
-					<div class="controls">
-					  <input type="password" id="ConfigPassword" placeholder="再次输入密码" name="ConfigPassword" onblur="check"/>					 
-					</div>
-				  </div> 
-				  
-				  <div class="control-group">
-					<label class="control-label" for="inputEmail">邮箱</label>
-					<div class="controls">
-					  <input type="text" id="inputEmail" placeholder="邮箱" name="Email"/>
-					</div>
-				  </div>
-				  
-				  <div class="control-group ">
-					<label class="control-label" for="inputEmail">证件类型<?php echo "&nbsp&nbsp"?></label>
-					<div class="controls">
-					  <select class="span4" name="papertype">
-						<option selected="selected" value="身份证">身份证</option>
-						<option value="士兵证">士兵证</option>
-						<option value="学生证">学生证</option>
-					  </select>
-				   </div>
-				  </div>
-					
-				  <div class="control-group">
-					<label class="control-label" for="inputPaperCode">证件号码</label>
-					<div class="controls">
-					  <input type="text" id="inputPaperCode" placeholder="证件号码" name="papercode"/>
-					</div>
-				  </div>
-				  
-				  <div class="control-group">
-					<div class="controls">					  
-					  <button type="submit" class="btn btn-success" name="register">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
-					</div>
-				  </div>
-				  
-				</form>
+
+					<div class="lo_corner_c">
+					  <h3 class="login">
+						<div class="lo_h2_left"></div>
+						<div class="lo_h2_right"></div>
+						<span class="float_Right"></span>注册新用户？请您注册
+					  </h3>
+					  <div class="onError"><span id="cvlRegister" style="color: Red; display: none;">注册信息错误</span></div>
+					  <div class="lo_child">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名：&nbsp;&nbsp;&nbsp;<input name="tbxRegisterNickname" maxlength="20" id="tbxRegisterNickname" type="text">
+						<div class="onShow" id="registerNickname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4-20位字符，可由中英文、数字及“_”、“-”组成</div>
+						<input name="hflRegisterNickname" id="hflRegisterNickname" type="hidden">
+					  </div>
+					  <div class="lo_child">
+						&nbsp;&nbsp;&nbsp;&nbsp;输入密码：&nbsp;&nbsp;<input name="tbxRegisterPassword" maxlength="16" id="tbxRegisterPassword" type="password"><div id="pwdStrengh" style="display: none;">密码强度：</div><div class="onShow" id="registerPassword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6-16位字符，可由英文、数字及“_”、“-”组成</div>
+						<input name="hflRegisterPassword" id="hflRegisterPassword" type="hidden">
+					  </div>
+					  <div class="lo_child">
+						再次输入密码：<input name="tbxRegisterRepeatPassword" maxlength="16" id="tbxRegisterRepeatPassword" type="password"><div style="display: none;" id="registerRepeatPassword"></div>
+					  </div>
+					  <div class="lo_child" style="width: auto; padding-right: 0pt;">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮&nbsp;&nbsp;箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="tbxRegisterEmail" maxlength="50" id="tbxRegisterEmail" type="text">&nbsp;免费邮箱：<a class="link_1" href="http://reg.email.163.com" target="_blank">网易</a>
+						<div class="onShow" id="registerEmail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;接收还书通知、找回密码，填写后<font color="Red">不能修改</font></div><br/>
+						<input name="hflRegisterEmail" id="hflRegisterEmail" type="hidden">
+					  </div>
+					  					  
+
+					  <div class="lo_child align_Center">
+						<input id="choose" class="radio" checked="checked" type="checkbox">我已阅读并同意<a href="" target="_blank">《用户协议》</a><div style="display: none;" id="agreement"></div><br/>
+					  </div>
+					  <div class="lo_submit">
+						<input name="ibtRegister" id="ibtRegister" src="<?php echo base_url()?>images/bottom_login.gif" onclick="return validate('2');WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ibtRegister&quot;, &quot;&quot;, true, &quot;2&quot;, &quot;&quot;, false, false))" style="border-width: 0px;" type="image">
+					  </div>
+			  </div>
 			</div>
 			<!--注册-->
 			

@@ -176,19 +176,16 @@
  	  */
  	  function save()
  	  {
- 	  	$re_edit = $this->input->post('re_edit');
- 	  	
+ 	  	$re_edit = $this->input->post('re_edit'); 	  	
  	  	//id
- 	  	$id = $this->input->post('id');
- 	  		
+ 	  	$id = $this->input->post('id'); 	  		
  	  	//post data
  	  	$name = $this->input->post('name');
  	  	//echo ' 1<br/>';
  	  	$Email = $this->input->post('Email');//echo ' 2<br/>';
  	  	$password = $this->input->post('password');//echo ' 3<br/>';
  	  	$papertype = $this->input->post('papertype');//echo ' 4<br/>';
- 	  	$papercode = $this->input->post('papercode');//echo ' 5<br/>';
- 	  	
+ 	  	$papercode = $this->input->post('papercode');//echo ' 5<br/>'; 	  	
  	  	$typeid = $this->input->post('typeid');//echo ' 6<br/>';
  	  	$barcode = $this->input->post('barcode');//echo ' 7<br/>';
  	  	$sex = $this->input->post('sex');//echo ' 8<br/>';
