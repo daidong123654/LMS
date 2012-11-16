@@ -63,7 +63,7 @@ function read(id,obj)
 	<tr class="error">	
 	<?}?>	
     <td><? echo $i?></td>
-    <td> <?echo $row['barcode']?></td>
+    <td> <?echo $row['bookID']?></td>
     <td> <?echo $row['bookname']?></td>
      <td> <?echo $row['author']?></td>
     <td><?echo $row['booktypename']?></td>

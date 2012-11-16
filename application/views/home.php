@@ -59,9 +59,8 @@
 				<?
 				}
 				?>
-              <li><a href="#contact">新闻</a></li>              
-              <li><a href="#contact">留言</a></li>              
-              <li><a href="#contact">在线阅读</a></li>              
+              <li><a href="<?php echo site_url('home/news')?>">新闻</a></li>                  
+              <li><a href="<?php echo site_url('home/find_all_message')?>">留言</a></li>  
             </ul>
 		
 			<?if($this->session->userdata('logged')=='0')//$logged_in =='0')	
@@ -165,16 +164,16 @@
 		<!--工作信息-->
 		<div class="span3" >
 			<?php //print_r($lib_info)?>
-			<strong><?php echo $lib_info['LibraryName']?>					
+			<strong><?php echo $lib_info['LibraryName']?><br/>					
 			<ul class="unstyled">
 			<li>开馆时间</li>			
 			  <ul>
 				<li>周一至周五 9：00--21：00</li>
 				<li>周六至周日 9：00--17：00</li>
-			  </ul>
-			 <li>联系电话：<abbr title="Phone"></abbr><?php echo $lib_info['Telephone']?></li>			  
+			  </ul><br/>
+			 <li>联系电话：<abbr title="Phone"></abbr><?php echo $lib_info['Telephone']?></li><br/>			  
 			 	  
-			 <li>邮箱：<a href="mailto:<?php echo $lib_info['Email']?>"><?php echo $lib_info['Email']?> </a></li>
+			 <li>邮箱：<a href="mailto:<?php echo $lib_info['Email']?>"><?php echo $lib_info['Email']?> </a></li><br/>
 
 			 <li>有关负责人：<abbr title="Phone"></abbr><?php echo $lib_info['LibraryCurator']?></li>		
 			</ul>

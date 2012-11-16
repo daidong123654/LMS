@@ -13,22 +13,49 @@
  	echo "<br/>";
  }*/
 ?>
-<table class="table table-hover">		
+<table class="table table-hover table-bordered ">		
 	<tr class="error">   
-    <td> 用户名：</td>
-    <td><?echo $this->session->userdata('name')?></td>
+    <td> 用户名：&nbsp;&nbsp;&nbsp;&nbsp;<?echo $this->session->userdata('name')?></td>
     </tr>
     <tr class="success">   
-    <td> 邮箱：</td>
-    <td><?echo $this->session->userdata('Email')?></td>
+    <td> 邮箱：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?echo $this->session->userdata('Email')?></td>
     </tr>
     <tr class="warning">   
-    <td> 证件类型：</td>
-    <td><?echo $this->session->userdata('papertype')?></td>
+    <td> 证件类型：&nbsp;&nbsp;<?echo $this->session->userdata('papertype')?></td>
     </tr>
     <tr class="info">   
-    <td> 证件号码：</td>
-    <td><?echo $this->session->userdata('papercode')?></td>
-    </tr>    
+    <td> 证件号码：&nbsp;&nbsp;<?echo $this->session->userdata('papercode')?></td>
+    </tr>
+    <tr class="error">   
+    <td> 性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <?
+    if($this->session->userdata('papercode')==0)
+    	echo '男';
+    else
+    	echo '女';
+    ?>
+    </td>
+    </tr>   
+    <tr class="warning">   
+    <td> 电话：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <?
+    if($this->session->userdata('telephone')=='')
+    	echo '还未填写';
+    else
+    	echo $this->session->userdata('telephone');
+    ?>
+    </td>
+    </tr>   
+    <tr class="info">   
+    <td> 爱好：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <?
+   if( $this->session->userdata('remark')=='' )
+   		echo '还未填写';
+   	else
+   		echo  $this->session->userdata('remark');
+    ?>
+    </td>
+    </tr>       
 </table>
+<br/>
 <a href="<?echo site_url('reader/setting')?>"><button class="btn btn-inverse" type="button">更新信息</button></a>

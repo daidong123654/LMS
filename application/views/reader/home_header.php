@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>个人主页</title>
+    <title><?echo $header;?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -60,8 +60,8 @@
 				<?
 				}
 				?>
-              <li><a href="#contact">新闻</a></li>              
-              <li><a href="#contact">留言</a></li>             
+              <li><a href="<?php echo site_url('home/news')?>">新闻</a></li>              
+              <li><a href="<?php echo site_url('reader/message')?>">留言</a></li>             
             </ul>
 		
 			<?if($this->session->userdata('logged')=='0')//$logged_in =='0')	
@@ -84,7 +84,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">当前登录用户:<?echo $this->session->userdata['name']?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">个人主页</a></li>
-                  <li><a href="#">设置</a></li>
+                  <li><a href="<?echo site_url('reader/setting')?>">设置</a></li>
                   <li class="divider"></li>
 				  <li><a href="<?php echo site_url('reader/changepass')?>">修改密码</a></li>
                   <li class="divider"></li>
@@ -111,7 +111,7 @@
 		<!--<h2 style="margin-top:10px;"><?php echo $lib_info['LibraryName']?></h2>-->
 		
 		<form class="form-search" action="<?php echo site_url('reader/find_book')?>" method="post" >
-		  <label>搜 索 图 书: </label>
+		  <label>和 谐 图 书: </label>
 		  <input type="text" class="input-medium search-query span3" placeholder="请输入图书信息..." name="keyword">
 		  </label><button type="submit" class="btn">和谐一下</button>
 		</form>		

@@ -175,6 +175,7 @@
 	   			//echo "<h3><a href=".site_url('home').">如果浏览器没有自动返回，请点击此处返回</a></h3>" ;
 	   			echo "<script> alert('更新成功!返回主页重新登录。')</script>";
 	   			echo "<script> window.location.href= '$url'</script>";
+	   			
 	   			//echo "<meta http-equiv=\"refresh\" content=\"20,url=".site_url('home')."\">";	
 				//redirect('home');
  	 		}

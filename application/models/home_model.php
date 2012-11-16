@@ -30,14 +30,26 @@
  	/**
  	 * 加载最新五条新闻
  	 */
- 	 function get_last_five_news()
+ 	 function get_last_five_news($limit)
  	 {
- 	 	$this->db->from('lib_news');
- 	 	$this->db->where('isdelete','0');
-        $this->db->order_by("id", "desc");
-        $this->db->limit('5');
-        $query =  $this->db->get();
-        return $query->result_array(); 
+ 	 	if($limit)
+ 	 	{
+ 	 		$this->db->from('lib_news');
+	 	 	$this->db->where('isdelete','0');
+	        $this->db->order_by("id", "desc");
+	        $this->db->limit($limit);
+	        $query =  $this->db->get();
+	        return $query->result_array(); 
+ 	 	}
+ 	 	else
+ 	 	{
+ 	 		$this->db->from('lib_news');
+	 	 	$this->db->where('isdelete','0');
+	        $this->db->order_by("id", "desc");
+	        $query =  $this->db->get();
+	        return $query->result_array(); 
+ 	 	}
+ 	 	
  	 }
  	 
  	 //------------------------------------------------------------------------------------------
